@@ -8,7 +8,7 @@
 int main()
 {
     t_ndarray rank = {.shape = NULL};
-    omp_set_num_threads(4);
+    omp_set_num_threads(8);
     #pragma omp parallel
     {
         rank = array_create(1, (int64_t[]){2}, nd_int64);
