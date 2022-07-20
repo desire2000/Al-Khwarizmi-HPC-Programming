@@ -75,7 +75,7 @@ COMM.Gather(sendbuf,X,root=0)
 
 if RANK == 0 :
    X_ = A.dot(b)
-   print("The result of A*b using dot is :", X_)
+   print("The error comparing to the dot product is :", X_ - X)
    print("\n")
    print("\n")
-   print("The result of A*b using parallel version is :", X)
+   #print("The result of A*b using parallel version is :", X)
