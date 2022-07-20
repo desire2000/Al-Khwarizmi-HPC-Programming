@@ -11,10 +11,10 @@ if RANK == 0:
    recv = 10
    COMM.send(send, dest=RANK+1, tag=tag)
 else:
-   if n==2:
+   if n==1:
        recv = COMM.recv(source=0, tag=tag)
    else:
-       for i in range(1,n):
+       for i in range(2,n):
            RANK = i
            recv = COMM.recv(source=RANK-1, tag=tag)
            COMM.send(recv, dest=RANK+1, tag=tag)

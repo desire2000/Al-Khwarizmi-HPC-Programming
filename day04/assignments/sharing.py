@@ -8,11 +8,11 @@ send =1
 # COMM.Barrier()
 while recv > 0:
    if RANK == 0 :
-     send = int(input('Enter a number : ')) 
+       send = int(input('Enter a number : ')) 
        # send = 10
-     print(send)
+       print(send)
    else: 
-     send = None
+       send = None
 
    recv = COMM.bcast(send, root=0)
    print("Process ",RANK, " got ", recv)
