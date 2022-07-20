@@ -8,7 +8,7 @@
 int main()
 {
     t_ndarray rank = {.shape = NULL};
-    omp_set_num_threads(8);
+    omp_set_num_threads(4);
     #pragma omp parallel
     {
         rank = array_create(1, (int64_t[]){2}, nd_int64);
@@ -16,5 +16,6 @@ int main()
         memcpy(rank.nd_int64, array_dummy_0001, rank.buffer_size);
         printf("%s %ld %s %s\n", "Hello from the rank", GET_ELEMENT(rank, nd_int64, (int64_t)0), "threads", "\n");
     }
+    printf("%s %ld %s\n", "Parallel execution of hello_world with ", GET_ELEMENT(rank, nd_int64, (int64_t)1), " threads");
     return 0;
 }
